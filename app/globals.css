@@ -25,17 +25,530 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* ===== Utilities ===== */
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-30-extrabold {
+  font-size: 30px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.text-30-bold {
+  font-size: 30px;
+  font-weight: 700;
+  color: #000;
+}
+
+.text-30-semibold {
+  font-size: 30px;
+  font-weight: 600;
+  color: #000;
+}
+
+.text-26-semibold {
+  font-size: 26px;
+  font-weight: 600;
+  color: #000;
+}
+
+.text-24-black {
+  font-size: 24px;
+  font-weight: 900;
+  color: #000;
+}
+
+.text-20-medium {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+}
+
+.text-16-medium {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+}
+
+.text-14-normal {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ===== Sections / Containers ===== */
+.pink_container {
+  width: 100%;
+  background-color: var(--color-primary);
+  min-height: 530px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 24px;
+  /* includes .pattern */
+  background-image: linear-gradient(
+    to right,
+    transparent 49.5%,
+    rgba(251, 232, 67, 0.2) 49.5%,
+    rgba(251, 232, 67, 0.6) 50.5%,
+    transparent 50.5%
+  );
+  background-size: 5% 100%;
+  background-position: center;
+  background-repeat: repeat-x;
+}
+
+.tag {
+  background-color: var(--color-secondary);
+  padding: 12px 24px;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 700;
+  border-radius: 2px; /* rounded-sm */
+  text-transform: uppercase;
+  position: relative;
+}
+/* triangles (because original did @apply tag-tri) */
+.tag::before,
+.tag::after {
+  content: "";
+  position: absolute;
+}
+.tag::before {
+  top: 8px;          /* top-2 */
+  left: 8px;         /* left-2 */
+  border-top: 10px solid #000;
+  border-right: 10px solid transparent;
+}
+.tag::after {
+  bottom: 8px;       /* bottom-2 */
+  right: 8px;        /* right-2 */
+  border-bottom: 10px solid #000;
+  border-left: 10px solid transparent;
+}
+
+.heading {
+  text-transform: uppercase;
+  background-color: #000;
+  padding: 12px 24px;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 800;
+  color: #fff;
+  font-size: 36px;
+  line-height: 46px;
+  max-width: 64rem; /* max-w-5xl */
+  text-align: center;
+  margin: 20px 0;
+}
+@media (min-width: 640px) {
+  .heading {
+    font-size: 54px;
+    line-height: 64px;
+  }
+}
+
+.sub-heading {
+  font-weight: 500;
+  font-size: 20px;
+  color: #fff;
+  max-width: 42rem; /* max-w-2xl */
+  text-align: center;
+  word-break: break-word;
+}
+
+.section_container {
+  padding: 40px 24px;
+  max-width: 80rem; /* max-w-7xl */
+  margin: 0 auto;
+}
+
+/* ===== Grids ===== */
+.card_grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 640px) {
+  .card_grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 768px) {
+  .card_grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.card_grid-sm {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 640px) {
+  .card_grid-sm { grid-template-columns: repeat(2, 1fr); }
+}
+
+.no-result {
+  color: var(--color-black-100);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* ===== Profile ===== */
+.profile_container {
+  width: 100%;
+  padding: 80px 24px 40px 24px; /* pt-20 pb-10 px-6 */
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* gap-10 */
+}
+@media (min-width: 1024px) {
+  .profile_container { flex-direction: row; }
+}
+
+.profile_card {
+  width: 20rem; /* w-80 */
+  padding: 80px 24px 24px 24px; /* pt-20 px-6 pb-6 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-primary);
+  border: 5px solid #000;
+  box-shadow: var(--shadow-100);
+  border-radius: 30px;
+  position: relative;
+  z-index: 0;
+  height: fit-content;
+}
+@media (max-width: 1023.98px) {
+  .profile_card { width: 100%; } /* max-lg:w-full */
+}
+
+.profile_title {
+  width: 91.6667%; /* w-11/12 */
+  background-color: #fff;
+  border: 5px solid #000;
+  border-radius: 20px;
+  padding: 12px 20px; /* py-3 px-5 */
+  position: absolute;
+  top: -36px; /* -top-9 */
+  box-shadow: var(--shadow-100);
+}
+.profile_title::after,
+.profile_title::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  background: #000;
+  border-radius: 20px;
+  z-index: -1; /* -z-[1] */
+  transform: skewY(-6deg); /* -skew-y-6 */
+}
+.profile_title::after {
+  top: -4px;  /* -top-1 */
+  right: 0;
+}
+.profile_title::before {
+  bottom: -4px; /* -bottom-1 */
+  left: 0;
+}
+
+.profile_image {
+  border-radius: 9999px; /* rounded-full */
+  object-fit: cover;
+  border: 3px solid #000;
+}
+
+/* ===== Idea details ===== */
+.divider {
+  border-style: dotted;
+  background-color: rgb(161, 161, 170); /* zinc-400 */
+  max-width: 56rem; /* max-w-4xl */
+  margin: 40px auto; /* my-10 mx-auto */
+}
+
+.view_skeleton {
+  background-color: rgb(161, 161, 170); /* zinc-400 */
+  height: 40px;  /* h-10 */
+  width: 96px;   /* w-24 */
+  border-radius: 8px; /* rounded-lg */
+  position: fixed;
+  bottom: 12px;  /* bottom-3 */
+  right: 12px;   /* right-3 */
+}
+
+/* ===== Navbar ===== */
+.avatar {
+  padding: 0 !important;
+  background: none !important;
+  border-radius: 9999px !important;
+  filter: drop-shadow(0 4px 3px rgba(0,0,0,0.07)) drop-shadow(0 2px 2px rgba(0,0,0,0.06)) !important; /* drop-shadow-md */
+}
+.avatar:focus-visible {
+  outline: none !important;
+  box-shadow: none !important; /* ring-0 */
+}
+
+.dropdown-menu {
+  width: 14rem !important; /* w-56 */
+  border: 5px solid #000 !important;
+  background: #fff !important;
+  padding: 20px !important; /* p-5 */
+  border-radius: 16px !important; /* rounded-2xl */
+}
+
+.login {
+  border: 5px solid #000 !important;
+  padding-top: 16px !important;
+  padding-bottom: 16px !important; /* py-4 */
+  background: #fff !important;
+  color: #000 !important;
+  position: relative !important;
+  box-shadow: var(--shadow-100) !important;
+  font-family: "Work Sans", sans-serif !important;
+  font-weight: 500 !important;
+  transition: all 0.5s ease !important;
+}
+.login:hover { box-shadow: none !important; }
+
+/* ===== Search form ===== */
+.search-form {
+  max-width: 48rem; /* max-w-3xl */
+  width: 100%;
+  min-height: 80px;
+  background: #fff;
+  border: 5px solid #000;
+  border-radius: 80px;
+  font-size: 24px;
+  margin-top: 32px; /* mt-8 */
+  padding: 0 20px;  /* px-5 */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px; /* gap-5 */
+}
+
+.search-input {
+  flex: 1 1 auto;
+  font-weight: 700; /* font-bold */
+  width: 100%;
+  height: auto;
+  outline: none;
+}
+.search-input::placeholder {
+  font-weight: 600; /* placeholder:font-semibold */
+  color: var(--color-black-100);
+}
+
+.search-btn {
+  width: 50px !important;
+  height: 50px !important;            /* size-[50px] */
+  border-radius: 9999px !important;   /* rounded-full */
+  background: #000 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* ===== Startup card ===== */
+.startup-card {
+  background: #fff;
+  border: 5px solid #000;
+  padding: 24px 20px; /* py-6 px-5 */
+  border-radius: 22px;
+  box-shadow: var(--shadow-200);
+  transition: all 0.5s ease;
+}
+.startup-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-300);
+  background: var(--color-primary-100);
+}
+
+.startup-card_date {
+  font-weight: 500;
+  font-size: 16px;
+  background: var(--color-primary-100);
+  padding: 8px 16px; /* py-2 px-4 */
+  border-radius: 9999px;
+}
+/* group-hover effect */
+.group:hover .startup-card_date,
+.startup-card:hover .startup-card_date {
+  background: var(--color-white-100);
+}
+
+.startup-card_desc {
+  font-weight: 400;
+  font-size: 16px;
+  margin: 12px 0; /* my-3 */
+  color: var(--color-black-100);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;           /* line-clamp-2 */
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+}
+
+.startup-card_img {
+  width: 100%;
+  height: 164px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.startup-card_btn {
+  border-radius: 9999px !important;
+  background: var(--color-black-200) !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  color: #fff !important;
+  padding: 12px 20px !important; /* py-3 px-5 */
+}
+
+.startup-card_skeleton {
+  width: 100%;
+  height: 24rem; /* h-96 */
+  border-radius: 22px;
+  background: rgb(161, 161, 170); /* zinc-400 */
+}
+
+/* ===== Startup form ===== */
+.startup-form {
+  max-width: 42rem; /* max-w-2xl */
+  margin: 40px auto; /* my-10 mx-auto */
+  background: #fff;
+  padding: 0 24px;   /* px-6 */
+}
+/* space-y-8 */
+.startup-form > * + * { margin-top: 32px; }
+
+.startup-form_label {
+  font-weight: 700;
+  font-size: 18px;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.startup-form_input {
+  border: 3px solid #000 !important;
+  padding: 28px 20px !important; /* py-7 px-5 */
+  font-size: 18px !important;
+  color: #000 !important;
+  font-weight: 600 !important;
+  border-radius: 9999px !important;
+  margin-top: 12px !important; /* mt-3 */
+}
+.startup-form_input::placeholder {
+  color: var(--color-black-300);
+}
+
+.startup-form_textarea {
+  border: 3px solid #000 !important;
+  padding: 20px !important;
+  font-size: 18px !important;
+  color: #000 !important;
+  font-weight: 600 !important;
+  border-radius: 20px !important;
+  margin-top: 12px !important; /* mt-3 */
+}
+.startup-form_textarea::placeholder {
+  color: var(--color-black-300);
+}
+
+.startup-form_error {
+  color: #ef4444; /* red-500 */
+  margin-top: 8px;  /* mt-2 */
+  margin-left: 20px; /* ml-5 */
+}
+
+.startup-form_editor {
+  margin-top: 12px !important;
+  border: 3px solid #000 !important;
+  font-size: 18px !important;
+  color: #000 !important;
+  font-weight: 600 !important;
+}
+.startup-form_editor::placeholder {
+  color: var(--color-black-300);
+}
+
+.startup-form_btn {
+  background: var(--color-primary) !important;
+  border: 4px solid #000 !important;
+  border-radius: 9999px !important;
+  padding: 20px !important;
+  min-height: 70px !important;
+  width: 100% !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+}
+
+/* ===== View ===== */
+.view-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 20px; /* mt-5 */
+  position: fixed;
+  bottom: 12px; /* bottom-3 */
+  right: 12px;  /* right-3 */
+}
+
+.view-text {
+  font-weight: 500;
+  font-size: 16px;
+  background: var(--color-primary-100);
+  padding: 8px 16px; /* py-2 px-4 */
+  border-radius: 8px; /* rounded-lg */
+  text-transform: capitalize;
+}
+
+.category-tag {
+  font-weight: 500;
+  font-size: 16px;
+  background: var(--color-primary-100);
+  padding: 8px 16px; /* py-2 px-4 */
+  border-radius: 9999px; /* rounded-full */
+}
+
+/* ===== Pattern (standalone class if you need it separately) ===== */
 .pattern {
-        background-image: linear-gradient(
-                to right,
-                transparent 49.5%,
-                rgba(251, 232, 67, 0.2) 49.5%,
-                rgba(251, 232, 67, 0.6) 50.5%,
-                transparent 50.5%
-        );
-        background-size: 5% 100%;
-        background-position: center;
-        background-repeat: repeat-x;
-    }
+  background-image: linear-gradient(
+    to right,
+    transparent 49.5%,
+    rgba(251, 232, 67, 0.2) 49.5%,
+    rgba(251, 232, 67, 0.6) 50.5%,
+    transparent 50.5%
+  );
+  background-size: 5% 100%;
+  background-position: center;
+  background-repeat: repeat-x;
+}
 
+/* ===== Tag triangles standalone (in case you use .tag-tri elsewhere) ===== */
+.tag-tri::before,
+.tag-tri::after {
+  content: "";
+  position: absolute;
+}
+.tag-tri::before {
+  top: 8px;
+  left: 8px;
+  border-top: 10px solid #000;
+  border-right: 10px solid transparent;
+}
+.tag-tri::after {
+  bottom: 8px;
+  right: 8px;
+  border-bottom: 10px solid #000;
+  border-left: 10px solid transparent;
+}
 
+/* ===== External component tweak ===== */
+.w-md-editor-toolbar { padding: 10px !important; }
