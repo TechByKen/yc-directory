@@ -1,10 +1,11 @@
+import { formatDate } from "@/lib/utils"
 
 const StartupCard = ({post}: {post: StartupTypeCard}) => {
   return (
     <li className="startup-card group">
       <div className="flex-between">
         <p className="start_card_date">
-          {post._cratedAt}
+          {formatDate(post._createdAt)}
         </p>
       </div>
     </li>
