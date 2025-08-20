@@ -404,7 +404,7 @@ body {
 
 .startup-card_btn {
   border-radius: 9999px !important;
-  background: var(--color-black-200) !important;
+  background: var(--foreground) !important;
   font-weight: 500 !important;
   font-size: 16px !important;
   color: #fff !important;

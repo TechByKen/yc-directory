@@ -10,7 +10,7 @@ export default async function Home({searchParams}: {searchParams: Promise<{query
   _id: 1,
   author: {_id: 1, name: 'Kenneth'},
   description: "This is a description",
-  image: "https://images.unsplash.com/photo-1502951682449-e5b93545d46e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDh8fFN0YXJ0dXAlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww",
+  image: "https://images.unsplash.com/photo-1527430253228-e93688616381?q=80&w=1034&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   category: "Coded",
   title: "Code it"
  }]
