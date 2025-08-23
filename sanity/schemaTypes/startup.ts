@@ -1,51 +1,49 @@
 
 import { defineField, defineType } from "sanity";
 
-export const startup = defineType(schemaDefinition: {
+export const startup = defineType({
 name: 'startup',
 title: 'Startup',
 type: 'document',
 
 fields: [
-    defineField(schemaField:{
+    defineField({
         name: 'title',
         type: 'string'
     }),
-    defineField(schemaField:{
+    defineField({
         name: 'slug',
         type: 'slug',
         options: {
             source: 'title'
         }
     }),
-    defineField(schemaField:{
+    defineField({
         name: 'author',
         type: 'reference',
         to: {type: 'author'}
     }),
-    defineField(schemaField:{
+    defineField({
         name: 'views',
         type: 'number'
     }),
-    defineField(schemaField:{
+    defineField({
         name: 'description',
         type: 'text'
     }),
-    defineField(schemaField:{
+    defineField({
         name: 'category',
         type: 'string',
-        validation: (Rule) => Rule.min(minNumber: 1).max( maxNumber: 20).required().error('Please enter a category')
+        validation: (Rule) => Rule.min(1).max(20).required().error('Please enter a category')
     }),
-    defineField(schemaField:{
+    defineField({
         name: 'image',
         type: 'url',
         validation: (Rule)=> Rule.required(),
     }),
-    defineField(schemaField:{
+    defineField({
         name: 'pitch',
         type: 'markdown'
     }),
 ],
-}
-
 })
