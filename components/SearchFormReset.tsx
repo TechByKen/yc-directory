@@ -18,6 +18,6 @@ const SearchFormReset = () => {
       </button>
     </div>
   )
-}
+} 
 
 export default SearchFormReset

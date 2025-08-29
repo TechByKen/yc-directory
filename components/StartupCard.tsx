@@ -10,7 +10,7 @@ export type StartupTypeCard = Omit<Startup, "author"> & {author?: Author}
 const StartupCard = ({post}: {post: StartupTypeCard}) => {
     const {views, category, description, title, author, _createdAt, _id, image} = post
   return (
-    <li className="startup-card group">
+    <li className="startup-card startup-card:hover group">
       <div className="flex-between">
         <p className="start_card_date">
           {formatDate(_createdAt)}

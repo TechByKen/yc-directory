@@ -364,9 +364,9 @@ body {
   transition: all 0.5s ease;
 }
 .startup-card:hover {
-  border-color: var(--color-primary);
+  border-color: red;
   box-shadow: var(--shadow-300);
-  background: var(--color-primary-100);
+  background: ;
 }
 
 .startup-card_date {
