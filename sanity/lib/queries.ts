@@ -28,3 +28,7 @@ _id,
   pitch
   
 }`)
+
+export const START_VIEWS_QUERY = defineQuery(`* [_type == 'startup' && _id == $id][0]{
+  _id, views
+  }`)

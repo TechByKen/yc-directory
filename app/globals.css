@@ -503,7 +503,7 @@ body {
 .view-text {
   font-weight: 500;
   font-size: 16px;
-  background: var(--color-primary-100);
+  background: pink;
   padding: 8px 16px; /* py-2 px-4 */
   border-radius: 8px; /* rounded-lg */
   text-transform: capitalize;
