@@ -404,7 +404,7 @@ body {
 
 .startup-card_btn {
   border-radius: 9999px !important;
-  background: var(--foreground) !important;
+  background: #ef4444!important;
   font-weight: 500 !important;
   font-size: 16px !important;
   color: #fff !important;
@@ -479,7 +479,7 @@ body {
 }
 
 .startup-form_btn {
-  background: var(--color-primary) !important;
+  background: #ef4444 !important;
   border: 4px solid #000 !important;
   border-radius: 9999px !important;
   padding: 20px !important;
